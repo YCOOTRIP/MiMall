@@ -1,9 +1,54 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+const Home = () => import('@/pages/home')
+const Index = () => import('@/pages/index')
+const Product = () => import('@/pages/product')
+const Detail = () => import('@/pages/detail')
+const Cart = () => import('@/pages/cart')
+const Order = () => import('@/pages/order')
+const OrderConfirm = () => import('@/pages/orderConfirm')
+const OrderList = () => import('@/pages/orderList')
+const OrderPay = () => import('@/pages/orderPay')
+const Login = () => import('@/pages/login')
+const Alipay = () => import('@/pages/alipay')
+
 Vue.use(VueRouter)
 
-const routes = []
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: Home,
+    redirect: '/index',
+    children: [
+      { path: '/index', name: 'index', component: Index },
+      { path: '/detail/:id', name: 'detail', component: Detail },
+      { path: '/product/:id', name: 'product', component: Product }
+    ]
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: Cart
+  },
+  {
+    path: '/order',
+    name: 'order',
+    component: Order,
+    children: [
+      { path: 'list', name: 'order-list', component: OrderList },
+      { path: 'confirm', name: 'order-confirm', component: OrderConfirm },
+      { path: 'pay', name: 'order-pay', component: OrderPay },
+      { path: 'alipay', name: 'alipay', component: Alipay }
+    ]
+  }
+]
 
 const router = new VueRouter({
   routes
