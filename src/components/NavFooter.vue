@@ -1,7 +1,5 @@
 <template>
-  <div>
-    navFooter
-  </div>
+  <div></div>
 </template>
 
 <script>

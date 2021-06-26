@@ -1,9 +1,10 @@
 <template>
-  <div>index</div>
+  <div></div>
 </template>
 
 <script>
-export default { // 放在home的router-view中
+export default {
+  // 放在home的router-view中
   name: 'index'
 }
 </script>
