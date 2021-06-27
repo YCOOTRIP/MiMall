@@ -120,7 +120,7 @@ export default {
   name: 'NavHeader',
   data() {
     return {
-      // username: 'yc',
+      username: 'yc',
       phoneList: []
     }
   },
