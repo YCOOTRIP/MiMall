@@ -13,14 +13,14 @@ export default {
   },
   methods: {
     getUser() {
-      this.axios.get('/user').then((res) => {
-        // todo 保存到vuex
+      this.axios.get('/user').then((res = {}) => {
+        // res 默认值为空 防止未登录时报错
         this.$store.dispatch('saveUserName', res.username)
       })
     },
     getCartCount() {
-      this.axios.get('/carts/products/sum').then((res) => {
-        // todo 保存到vuex
+      this.axios.get('/carts/products/sum').then((res = 0) => {
+        // res 默认值为0
         this.$store.dispatch('saveCartCount', res)
       })
     }
@@ -31,4 +31,6 @@ export default {
 @import '@/assets/scss/reset.scss';
 @import '@/assets/scss/config.scss';
 @import '@/assets/scss/button.scss';
+@import '@/assets/scss/base.scss';
+@import '@/assets/scss/mixin.scss';
 </style>

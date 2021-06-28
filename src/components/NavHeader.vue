@@ -28,7 +28,7 @@
             <div class="children">
               <ul>
                 <li class="product" v-for="item in phoneList" :key="item.id">
-                  <a v-bind:href="'/#/product/' + item.id" target="_blank">
+                  <a v-bind:href="'/#/product/' + item.id">
                     <div class="pro-img">
                       <img v-lazy="item.mainImage" :alt="item.subtitle" />
                     </div>
