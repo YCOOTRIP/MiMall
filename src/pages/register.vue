@@ -1,24 +1,23 @@
 <template>
-  <div class="login">
+  <div class="register">
     <div class="container">
       <a href="/#/index"><img src="/imgs/login-logo.png" alt=""/></a>
     </div>
     <div class="wrapper">
       <div class="container">
-        <div class="login-form">
-          <h3><span class="checked">帐号登录</span><span class="sep-line">|</span><span>扫码登录</span></h3>
+        <div class="register-form">
+          <h3><span class="checked">帐号注册</span></h3>
           <div class="input">
             <input type="text" placeholder="请输入帐号" v-model="username" />
           </div>
           <div class="input">
             <input type="password" placeholder="请输入密码" v-model="password" />
           </div>
-          <div class="btn-box">
-            <a href="javascript:;" class="btn" @click="login">登录</a>
+          <div class="input">
+            <input type="text" placeholder="请输入邮箱" v-model="email" />
           </div>
-          <div class="tips">
-            <div class="sms" @click="register">手机短信登录/注册</div>
-            <div class="reg" @click="register">立即注册<span>|</span>忘记密码？</div>
+          <div class="btn-box">
+            <a href="javascript:;" class="btn" @click="register">注册</a>
           </div>
         </div>
       </div>
@@ -36,31 +35,27 @@
 
 <script>
 export default {
-  name: 'login',
+  name: 'register',
   data() {
     return {
       username: '',
       password: '',
-      userId: ''
+      email: ''
     }
   },
   methods: {
-    login() {
-      // console.log(this)
-      const { username, password } = this
-      this.axios
-        .post('/user/login', {
-          username,
-          password
-        })
-        .then((res) => {
-          this.$cookie.set('userId', res.id, { expires: '1M' })
-          this.$store.dispatch('saveUserName', res.username)
-          this.$router.push('/index')
-        })
-    },
     register() {
-      this.$router.push('/register')
+      const { username, password, email } = this
+      this.axios
+        .post('/user/register', {
+          username,
+          password,
+          email
+        })
+        .then(() => {
+          alert('注册成功')
+          this.$router.push('/login')
+        })
     }
   }
 }
@@ -68,7 +63,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/base.scss';
-.login {
+.register {
   & > .container {
     height: 113px;
     img {
@@ -80,15 +75,15 @@ export default {
     background: url('/imgs/login-bg.jpg') no-repeat center;
     .container {
       height: 576px;
-      .login-form {
+      .register-form {
         box-sizing: border-box;
         padding-left: 31px;
         padding-right: 31px;
         width: 410px;
-        height: 510px;
+        height: 435px;
         background-color: #ffffff;
         position: absolute;
-        bottom: 29px;
+        bottom: 78px;
         right: 0;
         h3 {
           line-height: 23px;

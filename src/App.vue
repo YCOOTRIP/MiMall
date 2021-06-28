@@ -6,7 +6,25 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    this.getUser()
+    this.getCartCount()
+  },
+  methods: {
+    getUser() {
+      this.axios.get('/user').then((res) => {
+        // todo 保存到vuex
+        this.$store.dispatch('saveUserName', res.username)
+      })
+    },
+    getCartCount() {
+      this.axios.get('/carts/products/sum').then((res) => {
+        // todo 保存到vuex
+        this.$store.dispatch('saveCartCount', res)
+      })
+    }
+  }
 }
 </script>
 <style lang="scss">

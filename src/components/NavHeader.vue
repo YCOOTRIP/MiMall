@@ -11,9 +11,9 @@
         <div class="topbar-user">
           <a href="javascript:;" v-if="username">{{ username }}</a>
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
-          <a href="javascript:;" v-if="username">退出</a>
+          <a href="javascript:;" v-if="username" @click="logout">退出</a>
           <a href="/#/order/list" v-if="username">我的订单</a>
-          <a class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车()</a>
+          <a class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车({{ cartCount }})</a>
         </div>
       </div>
     </div>
@@ -120,8 +120,15 @@ export default {
   name: 'NavHeader',
   data() {
     return {
-      username: 'yc',
       phoneList: []
+    }
+  },
+  computed: {
+    username() {
+      return this.$store.state.username
+    },
+    cartCount() {
+      return this.$store.state.cartCount
     }
   },
   filters: {
@@ -151,6 +158,14 @@ export default {
     },
     login() {
       this.$router.push('/login')
+    },
+    logout() {
+      this.axios.post('/user/logout').then(() => {
+        alert('退出成功')
+        this.$cookie.set('userId', '', { expires: '-1' })
+        this.$store.dispatch('saveUserName', '')
+        this.$store.dispatch('saveCartCount', '0')
+      })
     }
   }
 }
@@ -179,6 +194,7 @@ export default {
         background-color: #ff6600;
         text-align: center;
         color: #ffffff;
+        margin-right: 0;
         .icon-cart {
           @include bgImg(16px, 12px, '/imgs/icon-cart-checked.png');
           margin-right: 4px;

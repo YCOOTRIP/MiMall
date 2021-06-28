@@ -12,6 +12,7 @@ const OrderList = () => import('@/pages/orderList')
 const OrderPay = () => import('@/pages/orderPay')
 const Login = () => import('@/pages/login')
 const Alipay = () => import('@/pages/alipay')
+const Register = () => import('@/pages/register')
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
   },
   {
     path: '/cart',

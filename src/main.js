@@ -5,7 +5,9 @@ import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
+import VueCookie from 'vue-cookie'
 
+Vue.use(VueCookie)
 Vue.use(VueAxios, axios)
 Vue.use(VueLazyLoad, {
   loading: '/imgs/loading-svg/loading-bars.svg'
@@ -18,12 +20,17 @@ axios.defaults.timeout = 8000
 // 接口错误拦截
 axios.interceptors.response.use((response) => {
   const res = response.data
+  const path = location.hash
   if (res.status === 0) {
     return res.data
   } else if (res.status === 10) {
-    window.location.href = '/#/login'
+    if (path !== '#/index') {
+      location.href = '/#/login'
+    }
+    return Promise.reject(res)
   } else {
     alert(res.msg)
+    return Promise.reject(res)
   }
 })
 
