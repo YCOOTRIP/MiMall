@@ -60,7 +60,6 @@
 <script>
 import ProductParam from '@/components/ProductParam'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
 export default {
   name: 'product',
   components: {

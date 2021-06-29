@@ -222,17 +222,19 @@ export default {
           this.phoneList = [list.slice(0, 4), list.slice(4, 8)]
         })
     },
-    addCart() {
-      this.showModal = true
-      // this.axios
-      //   .post('/carts', {
-      //     productId: id,
-      //     selected: true
-      //   })
-      //   .then((res) => {})
-      //   .catch(() => {
-      //     this.showModal = true
-      //   })
+    addCart(id) {
+      this.axios
+        .post('/carts', {
+          productId: id,
+          selected: true
+        })
+        .then((res) => {
+          this.showModal = true
+          this.$store.dispatch('saveCartCount', res.cartTotalQuantity)
+        })
+        .catch(() => {
+          this.showModal = true
+        })
     },
     goToCart() {
       this.$router.push('/cart')
