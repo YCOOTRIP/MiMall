@@ -17,8 +17,8 @@
             <a href="javascript:;" class="btn" @click="login">登录</a>
           </div>
           <div class="tips">
-            <div class="sms" @click="register">手机短信登录/注册</div>
-            <div class="reg" @click="register">立即注册<span>|</span>忘记密码？</div>
+            <div class="sms" @click="register">立即注册</div>
+            <div class="reg" @click="$message.success('功能暂未开发')">忘记密码？</div>
           </div>
         </div>
       </div>
@@ -54,9 +54,14 @@ export default {
           password
         })
         .then((res) => {
-          this.$cookie.set('userId', res.id, { expires: '1M' })
+          this.$cookie.set('userId', res.id, { expires: 'Session' })
           this.$store.dispatch('saveUserName', res.username)
-          this.$router.push('/index')
+          this.$router.push({
+            name: 'index',
+            params: {
+              from: 'login'
+            }
+          })
         })
     },
     register() {

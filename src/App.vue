@@ -7,9 +7,13 @@
 <script>
 export default {
   name: 'App',
-  mounted() {
-    this.getUser()
-    this.getCartCount()
+  created() {
+    // 初始化完毕后 立即获取数据库中数据保存到vuex中 用于渲染NavHeader组件的用户名和购物车数量
+    if (this.$cookie.get('userId')) {
+      // 只有处于登录状态才去请求用户数据
+      this.getUser()
+      this.getCartCount()
+    }
   },
   methods: {
     getUser() {

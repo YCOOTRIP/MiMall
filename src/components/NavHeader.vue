@@ -20,7 +20,8 @@
     <div class="nav-header">
       <div class="container">
         <div class="header-logo">
-          <a href="/#/index"></a>
+          <!-- <a href="/#/index"></a> -->
+          <div @click="$router.push(`/index`)" class="logo"></div>
         </div>
         <div class="header-menu">
           <div class="item-menu">
@@ -137,8 +138,12 @@ export default {
       return '￥' + val.toFixed(2) + '元'
     }
   },
-  mounted() {
+  created() {
     this.getProductList()
+    const params = this.$route.params
+    if (params && params.from === 'login') {
+      this.getCartCount()
+    }
   },
   methods: {
     getProductList() {
@@ -159,10 +164,16 @@ export default {
     login() {
       this.$router.push('/login')
     },
+    getCartCount() {
+      this.axios.get('/carts/products/sum').then((res = 0) => {
+        // res 默认值为0
+        this.$store.dispatch('saveCartCount', res)
+      })
+    },
     logout() {
       this.axios.post('/user/logout').then(() => {
-        alert('退出成功')
-        this.$cookie.set('userId', '', { expires: '-1' })
+        this.$message.success('退出成功')
+        this.$cookie.set('userId', '', { expires: '-1' }) // 立即过期
         this.$store.dispatch('saveUserName', '')
         this.$store.dispatch('saveCartCount', '0')
       })
@@ -188,6 +199,7 @@ export default {
         display: inline-block;
         color: #b0b0b0;
         margin-right: 17px;
+        cursor: pointer;
       }
       .my-cart {
         width: 110px;
@@ -206,31 +218,6 @@ export default {
     .container {
       height: 112px;
       @include flex();
-      .header-logo {
-        display: inline-block;
-        width: 55px;
-        height: 55px;
-        background-color: #ff6600;
-        a {
-          display: inline-block;
-          width: 110px;
-          height: 55px;
-          &::before {
-            content: ' ';
-            @include bgImg(55px, 55px, '/imgs/mi-logo.png', 55px);
-            transition: margin 0.2s;
-          }
-          &::after {
-            content: ' ';
-            @include bgImg(55px, 55px, '/imgs/mi-home.png', 55px);
-            transition: margin 0.2s;
-          }
-          &:hover::before {
-            margin-left: -55px;
-            transition: margin 0.2s;
-          }
-        }
-      }
       .header-menu {
         display: inline-block;
         width: 643px;
