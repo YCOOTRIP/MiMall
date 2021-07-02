@@ -119,26 +119,26 @@
 <script>
 export default {
   name: 'NavHeader',
-  data() {
+  data () {
     return {
       phoneList: []
     }
   },
   computed: {
-    username() {
+    username () {
       return this.$store.state.username
     },
-    cartCount() {
+    cartCount () {
       return this.$store.state.cartCount
     }
   },
   filters: {
-    currency(val) {
+    currency (val) {
       if (!val) return '0.00'
       return '￥' + val.toFixed(2) + '元'
     }
   },
-  created() {
+  created () {
     this.getProductList()
     const params = this.$route.params
     if (params && params.from === 'login') {
@@ -146,7 +146,7 @@ export default {
     }
   },
   methods: {
-    getProductList() {
+    getProductList () {
       this.axios
         .get('/products', {
           params: {
@@ -158,19 +158,19 @@ export default {
           this.phoneList = res.list
         })
     },
-    goToCart() {
+    goToCart () {
       this.$router.push('/cart')
     },
-    login() {
+    login () {
       this.$router.push('/login')
     },
-    getCartCount() {
+    getCartCount () {
       this.axios.get('/carts/products/sum').then((res = 0) => {
         // res 默认值为0
         this.$store.dispatch('saveCartCount', res)
       })
     },
-    logout() {
+    logout () {
       this.axios.post('/user/logout').then(() => {
         this.$message.success('退出成功')
         this.$cookie.set('userId', '', { expires: '-1' }) // 立即过期

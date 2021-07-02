@@ -1,7 +1,7 @@
 <template>
   <div class="register">
     <div class="container">
-      <a href="/#/index"><img src="/imgs/login-logo.png" alt=""/></a>
+      <a href="/#/index"><img src="/imgs/login-logo.png" alt="" /></a>
     </div>
     <div class="wrapper">
       <div class="container">
@@ -36,7 +36,7 @@
 <script>
 export default {
   name: 'register',
-  data() {
+  data () {
     return {
       username: '',
       password: '',
@@ -44,7 +44,7 @@ export default {
     }
   },
   methods: {
-    register() {
+    register () {
       const { username, password, email } = this
       this.axios
         .post('/user/register', {

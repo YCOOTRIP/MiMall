@@ -41,9 +41,8 @@
           </ul>
         </div>
         <swiper :options="swiperOptions">
-          <swiper-slide v-for="(item, index) in slideList" :key="index"
-            ><a :href="'/#/product/' + item.id"><img :src="item.img" alt=""/></a
-          ></swiper-slide>
+          <swiper-slide v-for="(item, index) in slideList" :key="index"><a :href="'/#/product/' + item.id"><img
+                :src="item.img" alt="" /></a></swiper-slide>
           <!-- Optional controls -->
           <div class="swiper-pagination" slot="pagination"></div>
           <div class="swiper-button-prev" slot="button-prev"></div>
@@ -66,7 +65,7 @@
         <h2>手机</h2>
         <div class="wrapper">
           <div class="banner-left">
-            <a href="/#/product/35"><img v-lazy="'/imgs/mix-alpha.jpg'" alt=""/></a>
+            <a href="/#/product/35"><img v-lazy="'/imgs/mix-alpha.jpg'" alt="" /></a>
           </div>
           <div class="list-box">
             <div class="list" v-for="(arr, i) in phoneList" v-bind:key="i">
@@ -87,15 +86,8 @@
       </div>
     </div>
     <service-bar></service-bar>
-    <modal
-      title="提示"
-      sureText="查看购物车"
-      btnType="1"
-      modalType="middle"
-      :showModal="showModal"
-      @submit="goToCart"
-      @cancel="showModal = false"
-    >
+    <modal title="提示" sureText="查看购物车" btnType="1" modalType="middle" :showModal="showModal" @submit="goToCart"
+      @cancel="showModal = false">
       <template v-slot:body>
         <p>商品添加成功！</p>
       </template>
@@ -112,7 +104,7 @@ export default {
   // 放在home的router-view中
   name: 'index',
   components: { ServiceBar, Swiper, SwiperSlide, Modal },
-  data() {
+  data () {
     return {
       swiperOptions: {
         autoplay: true,
@@ -204,11 +196,11 @@ export default {
       showModal: false
     }
   },
-  mounted() {
+  mounted () {
     this.init()
   },
   methods: {
-    init() {
+    init () {
       this.axios
         .get('/products', {
           params: {
@@ -222,7 +214,7 @@ export default {
           this.phoneList = [list.slice(0, 4), list.slice(4, 8)]
         })
     },
-    addCart(id) {
+    addCart (id) {
       this.axios
         .post('/carts', {
           productId: id,
@@ -236,7 +228,7 @@ export default {
           this.showModal = true
         })
     },
-    goToCart() {
+    goToCart () {
       this.$router.push('/cart')
     }
   }

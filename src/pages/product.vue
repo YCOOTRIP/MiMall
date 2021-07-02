@@ -19,20 +19,18 @@
           <a href="" id="">红外人脸识别</a>
         </p>
         <div class="price">
-          <span
-            >￥<em>{{ product.price }}</em></span
-          >
+          <span>￥<em>{{ product.price }}</em></span>
         </div>
       </div>
       <div class="item-bg-2"></div>
       <div class="item-bg-3"></div>
       <div class="item-swiper">
         <swiper :options="swiperOption">
-          <swiper-slide><img src="/imgs/product/gallery-2.png" alt=""/></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-3.png" alt=""/></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-4.png" alt=""/></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-5.jpg" alt=""/></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-6.jpg" alt=""/></swiper-slide>
+          <swiper-slide><img src="/imgs/product/gallery-2.png" alt="" /></swiper-slide>
+          <swiper-slide><img src="/imgs/product/gallery-3.png" alt="" /></swiper-slide>
+          <swiper-slide><img src="/imgs/product/gallery-4.png" alt="" /></swiper-slide>
+          <swiper-slide><img src="/imgs/product/gallery-5.jpg" alt="" /></swiper-slide>
+          <swiper-slide><img src="/imgs/product/gallery-6.jpg" alt="" /></swiper-slide>
           <!-- Optional controls -->
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
@@ -67,7 +65,7 @@ export default {
     Swiper,
     SwiperSlide
   },
-  data() {
+  data () {
     return {
       showSlide: false, // 控制过渡效果
       product: {},
@@ -83,21 +81,21 @@ export default {
       }
     }
   },
-  mounted() {
+  mounted () {
     this.getProductInfo()
   },
   methods: {
-    getProductInfo() {
+    getProductInfo () {
       const id = this.$route.params.id
       this.axios.get(`/products/${id}`).then((res) => {
         this.product = res
       })
     },
-    buy() {
+    buy () {
       const id = this.$route.params.id
       this.$router.push(`/detail/${id}`)
     },
-    closeVideo() {
+    closeVideo () {
       this.showSlide = false
       // const v = document.querySelector('video')
       const v = this.$refs.video

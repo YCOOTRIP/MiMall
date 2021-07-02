@@ -20,7 +20,7 @@ axios.defaults.baseURL = '/api'
 axios.defaults.timeout = 8000
 // 接口错误拦截
 axios.interceptors.response.use(
-  (response) => {
+  response => {
     const res = response.data
     const path = location.hash
     if (res.status === 0) {
@@ -35,7 +35,7 @@ axios.interceptors.response.use(
       return Promise.reject(res)
     }
   },
-  (err) => {
+  err => {
     const res = err.response
     Vue.prototype.$message.error(res.data.message)
     return Promise.reject(err)
@@ -44,5 +44,5 @@ axios.interceptors.response.use(
 new Vue({
   router,
   store,
-  render: (h) => h(App)
+  render: h => h(App)
 }).$mount('#app')

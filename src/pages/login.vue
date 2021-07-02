@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="container">
-      <a href="/#/index"><img src="/imgs/login-logo.png" alt=""/></a>
+      <a href="/#/index"><img src="/imgs/login-logo.png" alt="" /></a>
     </div>
     <div class="wrapper">
       <div class="container">
@@ -37,7 +37,7 @@
 <script>
 export default {
   name: 'login',
-  data() {
+  data () {
     return {
       username: '',
       password: '',
@@ -45,7 +45,7 @@ export default {
     }
   },
   methods: {
-    login() {
+    login () {
       // console.log(this)
       const { username, password } = this
       this.axios
@@ -64,7 +64,7 @@ export default {
           })
         })
     },
-    register() {
+    register () {
       this.$router.push('/register')
     }
   }

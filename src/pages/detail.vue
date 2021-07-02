@@ -5,10 +5,10 @@
       <div class="container clearfix">
         <div class="swiper">
           <swiper :options="swiperOption">
-            <swiper-slide><img src="/imgs/detail/phone-1.jpg" alt=""/></swiper-slide>
-            <swiper-slide><img src="/imgs/detail/phone-2.jpg" alt=""/></swiper-slide>
-            <swiper-slide><img src="/imgs/detail/phone-3.jpg" alt=""/></swiper-slide>
-            <swiper-slide><img src="/imgs/detail/phone-4.jpg" alt=""/></swiper-slide>
+            <swiper-slide><img src="/imgs/detail/phone-1.jpg" alt="" /></swiper-slide>
+            <swiper-slide><img src="/imgs/detail/phone-2.jpg" alt="" /></swiper-slide>
+            <swiper-slide><img src="/imgs/detail/phone-3.jpg" alt="" /></swiper-slide>
+            <swiper-slide><img src="/imgs/detail/phone-4.jpg" alt="" /></swiper-slide>
             <!-- Optional controls -->
             <div class="swiper-pagination" slot="pagination"></div>
           </swiper>
@@ -71,7 +71,7 @@ import ServiceBar from '../components/ServiceBar.vue'
 
 export default {
   name: 'detail',
-  data() {
+  data () {
     return {
       version: 1, // 商品版本切换
       id: this.$route.params.id,
@@ -85,7 +85,7 @@ export default {
       }
     }
   },
-  mounted() {
+  mounted () {
     this.getProductInfo()
   },
   components: {
@@ -95,7 +95,7 @@ export default {
     ServiceBar
   },
   methods: {
-    addCart() {
+    addCart () {
       this.axios
         .post('/carts', {
           productId: this.id,
@@ -106,7 +106,7 @@ export default {
           this.$router.push('/cart')
         })
     },
-    getProductInfo() {
+    getProductInfo () {
       this.axios.get(`/products/${this.id}`).then((res) => {
         this.product = res
       })

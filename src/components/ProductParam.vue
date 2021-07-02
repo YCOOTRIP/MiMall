@@ -19,21 +19,21 @@ export default {
   props: {
     title: String
   },
-  data() {
+  data () {
     return {
       isFixed: false
     }
   },
-  mounted() {
+  mounted () {
     window.addEventListener('scroll', this.initHeight)
   },
   methods: {
-    initHeight() {
+    initHeight () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       this.isFixed = scrollTop > 152
     }
   },
-  destroyed() {
+  destroyed () {
     window.removeEventListener('scroll', this.initHeight, false)
   }
 }

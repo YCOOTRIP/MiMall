@@ -1,4 +1,5 @@
 import Vue from 'vue'
-import { Message } from 'element-ui'
+import { Message, Cascader } from 'element-ui'
+Vue.use(Cascader)
 
 Vue.prototype.$message = Message
