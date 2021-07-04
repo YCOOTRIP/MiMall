@@ -26,6 +26,7 @@ axios.interceptors.response.use(
     if (res.status === 0) {
       return res.data
     } else if (res.status === 10) {
+      // 业务错误拦截(http状态码为200)
       if (path !== '#/index') {
         location.href = '/#/login'
       }
@@ -36,8 +37,9 @@ axios.interceptors.response.use(
     }
   },
   err => {
+    // 服务器错误拦截(http状态码为500)
     const res = err.response
-    Vue.prototype.$message.error(res.data.message)
+    Vue.prototype.$message.error(res.data.message.slice(-6))
     return Promise.reject(err)
   }
 )

@@ -1,5 +1,10 @@
 <template>
   <div class="order-confirm">
+    <order-header title="订单确认">
+      <template #tip>
+        <span>请认真填写收货地址</span>
+      </template>
+    </order-header>
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
       style="position: absolute; width: 0px; height: 0px; overflow: hidden">
       <defs>
@@ -147,6 +152,7 @@
 <script>
 import Modal from '@/components/Modal'
 import cityData from '@/assets/js/citydata'
+import OrderHeader from '@/components/OrderHeader'
 export default {
   name: 'orderConfirm',
   data () {
@@ -165,7 +171,8 @@ export default {
     }
   },
   components: {
-    Modal
+    Modal,
+    OrderHeader
   },
   mounted () {
     this.getAddressList()
