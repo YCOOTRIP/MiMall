@@ -41,8 +41,11 @@
           </ul>
         </div>
         <swiper :options="swiperOptions">
-          <swiper-slide v-for="(item, index) in slideList" :key="index"><a :href="'/#/product/' + item.id"><img
-                :src="item.img" alt="" /></a></swiper-slide>
+          <swiper-slide v-for="(item, index) in slideList" :key="index">
+            <a :href="'/#/product/' + item.id">
+              <img :src="item.img" alt="" />
+            </a>
+          </swiper-slide>
           <!-- Optional controls -->
           <div class="swiper-pagination" slot="pagination"></div>
           <div class="swiper-button-prev" slot="button-prev"></div>
@@ -153,12 +156,12 @@ export default {
             name: '小米CC9'
           },
           {
-            id: 31,
+            id: 34,
             img: '/imgs/item-box-2.png',
-            name: '小米8青春版'
+            name: '小米9 Pro 5G'
           },
           {
-            id: 32,
+            id: 48,
             img: '/imgs/item-box-3.jpg',
             name: 'Redmi K20 Pro'
           },

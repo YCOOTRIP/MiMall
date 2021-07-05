@@ -29,13 +29,13 @@
             <div class="children">
               <ul>
                 <li class="product" v-for="item in phoneList" :key="item.id">
-                  <a v-bind:href="'/#/product/' + item.id">
+                  <router-link :to="`/product/${item.id}`">
                     <div class="pro-img">
                       <img v-lazy="item.mainImage" :alt="item.subtitle" />
                     </div>
                     <div class="pro-name">{{ item.name }}</div>
                     <div class="pro-price">{{ item.price | currency }}</div>
-                  </a>
+                  </router-link>
                 </li>
               </ul>
             </div>
@@ -48,7 +48,7 @@
             <div class="children">
               <ul>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href="javascript:;">
                     <div class="pro-img">
                       <img v-lazy="'/imgs/nav-img/nav-3-1.jpg'" alt="" />
                     </div>
@@ -57,7 +57,7 @@
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href="javascript:;">
                     <div class="pro-img">
                       <img v-lazy="'/imgs/nav-img/nav-3-2.jpg'" alt="" />
                     </div>
@@ -66,7 +66,7 @@
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href="javascript:;">
                     <div class="pro-img">
                       <img v-lazy="'/imgs/nav-img/nav-3-3.png'" alt="" />
                     </div>
@@ -75,7 +75,7 @@
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href="javascript:;">
                     <div class="pro-img">
                       <img v-lazy="'/imgs/nav-img/nav-3-4.jpg'" alt="" />
                     </div>
@@ -84,7 +84,7 @@
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href="javascript:;">
                     <div class="pro-img">
                       <img v-lazy="'/imgs/nav-img/nav-3-5.jpg'" alt="" />
                     </div>
@@ -93,7 +93,7 @@
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href="javascript:;">
                     <div class="pro-img">
                       <img v-lazy="'/imgs/nav-img/nav-3-6.png'" alt="" />
                     </div>

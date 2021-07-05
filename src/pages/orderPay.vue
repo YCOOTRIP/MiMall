@@ -56,7 +56,7 @@
       </div>
     </div>
     <scan-pay-code v-if="showPay" :img="payImg" @close="closePayModal"></scan-pay-code>
-    <modal title="支付确认" btnType="3" :showModal="showPayModal" sureText="已支付 查看订单" cancelText="未支付"
+    <modal title="支付确认" btnType="3" :showModal="showPayModal" sureText="查看订单" cancelText="未支付"
       @cancel="showPayModal=false" @submit="goOrderList">
       <template v-slot:body>
         <p>您确认是否完成支付？</p>
