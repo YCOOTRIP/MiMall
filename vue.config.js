@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production' ? '/mimall' : '/',
   devServer: {
     host: 'localhost',
     port: 9080,
@@ -12,5 +13,9 @@ module.exports = {
         }
       }
     }
+  },
+  productionSourceMap: false,
+  chainWebpack: config => {
+    config.plugins.delete('prefetch')
   }
 }

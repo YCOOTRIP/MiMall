@@ -1,7 +1,7 @@
 <template>
   <div class="register">
     <div class="container">
-      <a href="/#/index"><img src="/imgs/login-logo.png" alt="" /></a>
+      <router-link to="/index"><img src="~@/assets/imgs/login-logo.png" alt="" /></router-link>
     </div>
     <div class="wrapper">
       <div class="container">
@@ -73,7 +73,7 @@ export default {
     }
   }
   .wrapper {
-    background: url('/imgs/login-bg.jpg') no-repeat center;
+    background: url('~@/assets/imgs/login-bg.jpg') no-repeat center;
     .container {
       height: 576px;
       .register-form {

@@ -47,8 +47,8 @@
             </div>
           </div>
           <nodata v-if="!loading && list.length === 0"></nodata>
-          <el-pagination class="pagination" background layout="prev, pager, next" :pageSize='pageSize' :total="total"
-            @current-change="handleChange">
+          <el-pagination v-if="list.length !== 0" class="pagination" background layout="prev, pager, next"
+            :pageSize='pageSize' :total="total" @current-change="handleChange">
           </el-pagination>
         </div>
       </div>

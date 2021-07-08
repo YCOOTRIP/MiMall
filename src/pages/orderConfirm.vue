@@ -114,7 +114,7 @@
             </div>
           </div>
           <div class="btn-group">
-            <a href="/#/cart" class="btn btn-default btn-large">返回购物车</a>
+            <router-link to="/cart" class="btn btn-default btn-large">返回购物车</router-link>
             <a href="javascript:;" class="btn btn-large" @click="orderSubmit">去结算</a>
           </div>
         </div>
@@ -408,7 +408,7 @@ export default {
               width: 30px;
               height: 30px;
               border-radius: 50%;
-              background: url('/imgs/icon-add.png') #e0e0e0 no-repeat center;
+              background: url('~@/assets/imgs/icon-add.png') #e0e0e0 no-repeat center;
               background-size: 14px;
               margin: 0 auto;
               margin-top: 45px;

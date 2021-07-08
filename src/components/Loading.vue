@@ -1,6 +1,6 @@
 <template>
   <div class="loading">
-    <img src="/imgs/loading-svg/loading-bubbles.svg" alt="">
+    <img src="~@/assets/imgs/loading-svg/loading-bubbles.svg" alt="">
   </div>
 </template>
 

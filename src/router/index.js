@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// const Home = () => import('@/pages/home')
+// const Index = () => import('@/pages/index')
+import Home from '@/pages/home'
+import Index from '@/pages/index'
+
 // 解决重复点击路由报错
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location, onResolve, onReject) {
   if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
   return originalPush.call(this, location).catch(err => err)
 }
-
-const Home = () => import('@/pages/home')
-const Index = () => import('@/pages/index')
 const Product = () => import('@/pages/product')
 const Detail = () => import('@/pages/detail')
 const Cart = () => import('@/pages/cart')
@@ -64,7 +66,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  base: process.env.NODE_ENV === 'production' ? '/mimall' : ''
 })
 
 export default router

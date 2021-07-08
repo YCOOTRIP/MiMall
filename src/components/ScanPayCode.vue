@@ -54,7 +54,7 @@ export default {
     display: flex;
     align-items: center;
     .img-scan {
-      @include bgImg(296px, 485px, '/imgs/pay/icon-scan.png');
+      @include bgImg(296px, 485px, '~@/assets/imgs/pay/icon-scan.png');
     }
     .img-pay {
       width: 370px;
@@ -73,7 +73,7 @@ export default {
           position: absolute;
           top: 23.5px;
           right: 20px;
-          @include bgImg(13px, 13px, '/imgs/icon-close.png');
+          @include bgImg(13px, 13px, '~@/assets/imgs/icon-close.png');
           cursor: pointer;
         }
       }

@@ -42,7 +42,7 @@
         </div>
         <div class="order-wrap clearfix">
           <div class="cart-tip fl">
-            <a href="/#/index"> 继续购物</a>
+            <router-link to="/index"> 继续购物</router-link>
             共
             <span>{{ list.length }}</span>件商品，已选择 <span>{{ checkedNum }}</span>件
           </div>
@@ -166,7 +166,7 @@ export default {
         margin-right: 17px;
         cursor: pointer;
         &.checked {
-          background: url('/imgs/icon-gou.png') #ff6600 no-repeat center;
+          background: url('~@/assets/imgs/icon-gou.png') #ff6600 no-repeat center;
           background-size: 16px 12px;
           border: none;
         }
@@ -243,7 +243,7 @@ export default {
             flex: 1;
             width: 14px;
             height: 12px;
-            background: url('/imgs/icon-close.png') no-repeat center;
+            background: url('~@/assets/imgs/icon-close.png') no-repeat center;
             background-size: contain;
             cursor: pointer;
           }

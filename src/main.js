@@ -11,7 +11,7 @@ import './plugins/element.js'
 Vue.use(VueCookie)
 Vue.use(VueAxios, axios)
 Vue.use(VueLazyLoad, {
-  loading: '/imgs/loading-svg/loading-bars.svg'
+  loading: require('@/assets/imgs/loading-svg/loading-bars.svg')
 })
 Vue.config.productionTip = false
 

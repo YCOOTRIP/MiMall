@@ -5,10 +5,10 @@
       <div class="container clearfix">
         <div class="swiper">
           <swiper :options="swiperOption">
-            <swiper-slide><img src="/imgs/detail/phone-1.jpg" alt="" /></swiper-slide>
-            <swiper-slide><img src="/imgs/detail/phone-2.jpg" alt="" /></swiper-slide>
-            <swiper-slide><img src="/imgs/detail/phone-3.jpg" alt="" /></swiper-slide>
-            <swiper-slide><img src="/imgs/detail/phone-4.jpg" alt="" /></swiper-slide>
+            <swiper-slide><img src="~@/assets/imgs/detail/phone-1.jpg" alt="" /></swiper-slide>
+            <swiper-slide><img src="~@/assets/imgs/detail/phone-2.jpg" alt="" /></swiper-slide>
+            <swiper-slide><img src="~@/assets/imgs/detail/phone-3.jpg" alt="" /></swiper-slide>
+            <swiper-slide><img src="~@/assets/imgs/detail/phone-4.jpg" alt="" /></swiper-slide>
             <!-- Optional controls -->
             <div class="swiper-pagination" slot="pagination"></div>
           </swiper>
@@ -56,7 +56,7 @@
       <div class="container">
         <h2>价格说明</h2>
         <div class="desc">
-          <img src="/imgs/detail/item-price.jpeg" alt="" />
+          <img src="~@/assets/imgs/detail/item-price.jpeg" alt="" />
         </div>
       </div>
     </div>
@@ -182,7 +182,7 @@ export default {
           position: absolute;
           top: 27px;
           left: 34px;
-          @include bgImg(20px, 20px, '/imgs/detail/icon-loc.png');
+          @include bgImg(20px, 20px, '~@/assets/imgs/detail/icon-loc.png');
         }
         .addr {
           color: #666666;

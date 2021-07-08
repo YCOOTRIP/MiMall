@@ -12,7 +12,7 @@
           <a href="javascript:;" v-if="username">{{ username }}</a>
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
           <a href="javascript:;" v-if="username" @click="logout">退出</a>
-          <a href="/#/order/list" v-if="username">我的订单</a>
+          <router-link to="/order/list" v-if="username">我的订单</router-link>
           <a class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车({{ cartCount }})</a>
         </div>
       </div>
@@ -20,7 +20,6 @@
     <div class="nav-header">
       <div class="container">
         <div class="header-logo">
-          <!-- <a href="/#/index"></a> -->
           <div @click="$router.push(`/index`)" class="logo"></div>
         </div>
         <div class="header-menu">
@@ -50,7 +49,7 @@
                 <li class="product">
                   <a href="javascript:;">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-1.jpg'" alt="" />
+                      <img v-lazy="require('@/assets/imgs/nav-img/nav-3-1.jpg')" alt="" />
                     </div>
                     <div class="pro-name">小米壁画电视 65英寸</div>
                     <div class="pro-price">6999元</div>
@@ -59,7 +58,7 @@
                 <li class="product">
                   <a href="javascript:;">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-2.jpg'" alt="" />
+                      <img v-lazy="require('@/assets/imgs/nav-img/nav-3-2.jpg')" alt="" />
                     </div>
                     <div class="pro-name">小米全面屏电视E55A</div>
                     <div class="pro-price">1999元</div>
@@ -68,7 +67,7 @@
                 <li class="product">
                   <a href="javascript:;">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-3.png'" alt="" />
+                      <img v-lazy="require('@/assets/imgs/nav-img/nav-3-3.png')" alt="" />
                     </div>
                     <div class="pro-name">小米电视4A 32英寸</div>
                     <div class="pro-price">699元</div>
@@ -77,7 +76,7 @@
                 <li class="product">
                   <a href="javascript:;">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-4.jpg'" alt="" />
+                      <img v-lazy="require('@/assets/imgs/nav-img/nav-3-4.jpg')" alt="" />
                     </div>
                     <div class="pro-name">小米电视4A 55英寸</div>
                     <div class="pro-price">1799元</div>
@@ -86,7 +85,7 @@
                 <li class="product">
                   <a href="javascript:;">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-5.jpg'" alt="" />
+                      <img v-lazy="require('@/assets/imgs/nav-img/nav-3-5.jpg')" alt="" />
                     </div>
                     <div class="pro-name">小米电视4A 65英寸</div>
                     <div class="pro-price">2699元</div>
@@ -95,7 +94,7 @@
                 <li class="product">
                   <a href="javascript:;">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-6.png'" alt="" />
+                      <img v-lazy="require('@/assets/imgs/nav-img/nav-3-6.png')" alt="" />
                     </div>
                     <div class="pro-name">查看全部</div>
                     <div class="pro-price">查看全部</div>
@@ -208,7 +207,7 @@ export default {
         color: #ffffff;
         margin-right: 0;
         .icon-cart {
-          @include bgImg(16px, 12px, '/imgs/icon-cart-checked.png');
+          @include bgImg(16px, 12px, '~@/assets/imgs/icon-cart-checked.png');
           margin-right: 4px;
         }
       }
@@ -309,7 +308,7 @@ export default {
             padding-left: 14px;
           }
           a {
-            @include bgImg(18px, 18px, '/imgs/icon-search.png');
+            @include bgImg(18px, 18px, '~@/assets/imgs/icon-search.png');
             margin-left: 17px;
           }
         }
