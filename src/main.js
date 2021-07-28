@@ -15,6 +15,9 @@ Vue.use(VueLazyLoad, {
 })
 Vue.config.productionTip = false
 
+// 解决生产环境下登录重定向路径错误问题
+const publicPath = process.env.NODE_ENV === 'production' ? '/mimall' : '/'
+
 // 根据前端的跨域方式做调整 此方式为接口代理 /api为前缀
 axios.defaults.baseURL = '/api'
 axios.defaults.timeout = 8000
@@ -26,9 +29,9 @@ axios.interceptors.response.use(
     if (res.status === 0) {
       return res.data
     } else if (res.status === 10) {
-      // 业务错误拦截(http状态码为200)
-      if (path !== '#/index') {
-        location.href = '/#/login'
+      // 业务错误拦截(http状态码为200) 10表示未登录
+      if (path !== `${publicPath}#/index`) {
+        location.href = `${publicPath}#/login`
       }
       return Promise.reject(res)
     } else {
