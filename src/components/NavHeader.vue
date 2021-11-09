@@ -138,11 +138,15 @@ export default {
     }
   },
   created () {
+    // console.log('navHeader created')
     this.getProductList()
     const params = this.$route.params
     if (params && params.from === 'login') {
       this.getCartCount()
     }
+  },
+  destroyed () {
+    // console.log('navHeader destoryed')
   },
   methods: {
     getProductList () {

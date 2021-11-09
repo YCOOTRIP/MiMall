@@ -47,7 +47,7 @@
           <div class="overlay" v-show="showSlide"></div>
           <div class="video" :class="{ slide: showSlide }">
             <span class="icon-close" @click="closeVideo"></span>
-            <video src="~@/assets/imgs/product/video.mp4" muted autoplay controls="controls" ref="video"></video>
+            <video src="~@/assets/imgs/product/video.mp4" muted autoplay controls ref="video"></video>
           </div>
         </div>
       </div>
