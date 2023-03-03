@@ -41,8 +41,7 @@ export default {
     return {
       username: '',
       password: '',
-      userId: '',
-      test: '91'
+      userId: ''
     }
   },
   methods: {
