@@ -16,7 +16,8 @@ export default {
     return {
       orderId: this.$route.query.orderId,
       content: '',
-      loading: true
+      loading: true,
+      test: '90'
     }
   },
   mounted () {
